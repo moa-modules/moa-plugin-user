@@ -13,6 +13,17 @@ var $middlewares  = require('mount-middlewares')(__dirname);
 var $ = require('mount-controllers')(__dirname).users_controller;
 
 
+// -- custom routes
+router.route('/register')
+  .get($.register_get)
+  .post($.register);
+  
+router.route('/login')
+  .get($.login_get)
+  .post($.login);
+  
+router.get('/logout', $.logout);  
+
 /**
  * Auto generate RESTful url routes.
  *
@@ -41,7 +52,6 @@ router.route('/:id')
   .delete($.destroy);
 
 
-// -- custom routes
 
 
 
